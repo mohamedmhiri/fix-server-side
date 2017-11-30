@@ -1,0 +1,35 @@
+{
+  "name": "fix-server-side",
+  "version": "1.0.0",
+  "description": "A fix microservice implemented with nodejs and expressjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedmhiri/fix-server-side.git"
+  },
+  "keywords": [
+    "Fix",
+    "protocol",
+    "FIX",
+    "Nodejs",
+    "ExpressJs",
+    "Microservice"
+  ],
+  "author": "Mohamed mhiri & Nouha Bahri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohamedmhiri/fix-server-side/issues"
+  },
+  "homepage": "https://github.com/mohamedmhiri/fix-server-side#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
