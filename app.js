@@ -4,30 +4,11 @@ const bodyParser = require('body-parser')
 // Get dependencies
 const http = require('http')
 
-// morgan logger and it's dependencies
-const morgan = require('morgan')
-const fs = require('fs')
-const path = require('path')
-const rfs = require('rotating-file-stream')
-
 // Get our API routes
 const api = require('./routes/api')
 //const util = require('./routes/data')
 
 const app = express()
-const logDirectory = path.join(__dirname, 'log')
-
-// ensure log directory exists
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
-
-// create a rotating write stream
-const accessLogStream = rfs('access.log', {
-    interval: '1d', // rotate daily
-    path: logDirectory
-})
-
-// setup the logger
-app.use(morgan('combined', {stream: accessLogStream}))
 
 app.use(require('cors')())
 // Parsers for POST data
