@@ -3,7 +3,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 // Get dependencies
 const http = require('http')
-
+// winston for logging
+const winston = require('winston')
 // Get our API routes
 const api = require('./routes/api')
 //const util = require('./routes/data')
@@ -20,6 +21,14 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS')
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
     next()
+})
+
+
+//winston logging in file
+winston.configure({
+    transports: [
+        new (winston.transports.File)({ filename: './log/all.log', colorize: true })
+    ]
 })
 
 // Set our api routes
@@ -39,4 +48,7 @@ const server = http.createServer(app)
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`))
+server.listen(port, () =>  {
+    winston.log('info', 'Hello distributed log files!')
+    console.log(`API running on localhost:${port}`)
+})
