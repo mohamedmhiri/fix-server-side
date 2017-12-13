@@ -6,8 +6,8 @@ const http = require('http')
 // winston for logging
 const winston = require('winston')
 // Get our API routes
-const api = require('./routes/api')
-//const util = require('./routes/data')
+const api = require('./lib/routes/api')
+const user = require('./lib/routes/user')
 
 const app = express()
 
@@ -33,7 +33,7 @@ winston.configure({
 
 // Set our api routes
 app.use('/', api)
-//app.use('/api', util)
+app.use('/api', user)
 /**
  * Get port from environment and store in Express.
  */
