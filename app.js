@@ -11,7 +11,8 @@ const user = require('./lib/routes/user')
 const transaction = require('./lib/routes/transaction')
 
 const mongoose = require('mongoose')
-const connection = mongoose.connect('mongodb://localhost/finance')
+const DB = require('./lib/config/database').database
+const connection = mongoose.connect(DB)
 
 const app = express()
 
@@ -54,6 +55,6 @@ const server = http.createServer(app)
  * Listen on provided port, on all network interfaces.
  */
 server.listen(port, () =>  {
-    winston.log('info', 'Hello distributed log files!')
+    winston.log('info', `API running on localhost:${port}`)
     console.log(`API running on localhost:${port}`)
 })
