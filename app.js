@@ -8,7 +8,10 @@ const winston = require('winston')
 // Get our API routes
 const api = require('./lib/routes/api')
 const user = require('./lib/routes/user')
-const transaction = require('./routes/transaction')
+const transaction = require('./lib/routes/transaction')
+
+const mongoose = require('mongoose')
+const connection = mongoose.connect('mongodb://localhost/finance')
 
 const app = express()
 
