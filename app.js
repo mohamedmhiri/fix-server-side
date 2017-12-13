@@ -12,7 +12,7 @@ const transaction = require('./lib/routes/transaction')
 
 const mongoose = require('mongoose')
 const DB = require('./lib/config/database').database
-const connection = mongoose.connect(DB)
+const connection = mongoose.createConnection(DB)
 
 const app = express()
 
